@@ -1,0 +1,19 @@
+*.vcd
+*.vpd
+*.fsdb
+*.wlf
+*.evcd
+*.dump
+*.log
+
+
+# --- Xilinx Vivado / ISE ---
+*.jou
+*.pb
+*.bit
+*.dcp
+*.rpt
+.Xil/
+xsim.dir/
+webtalk*.log
+webtalk*.xml
