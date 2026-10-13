@@ -10,7 +10,7 @@ class apb_seq_test extends apb_base_test;
 		env.agt.gen.reset();
 
         for (int i = 0; i < MEM_SIZE; i++) begin
-            env.agt.gen.write(i, $random);
+            env.agt.gen.write(i, $urandom);
         end
 
         for (int i = 0; i < MEM_SIZE; i++) begin

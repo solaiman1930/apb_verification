@@ -20,7 +20,6 @@ class apb_ones_test extends apb_base_test;
         wait(env.sb.total_reads == MEM_SIZE);
         $display("All One Test Complete");
         env.sb.report();
-
     endtask
 
 endclass

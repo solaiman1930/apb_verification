@@ -82,10 +82,20 @@ module tb_top;
 										 test = new(apbif);
 										 test.run();
 									 end
+			"apb_data_test": begin
+								 apb_data_test test;
+								 test = new(apbif);
+								 test.run();
+							 end
+			"apb_err_test": begin
+								apb_err_test test;
+								test = new(apbif);
+								test.run();
+							end
 			default:
 				$display("UNKNOWN TEST NAME");
 			endcase
-
+		
 		$finish;
 	end
 

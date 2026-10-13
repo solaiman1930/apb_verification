@@ -9,4 +9,6 @@ package apb_test_pkg;
 	`include "apb_zeroone_test.sv"
 	`include "apb_repeat_read_test.sv"
 	`include "apb_repeat_write_test.sv"
+	`include "apb_data_test.sv"
+	`include "apb_err_test.sv"
 endpackage

@@ -29,7 +29,7 @@ class scoreboard;
 			if (tr.pwrite) begin
 				if (tr.pslverr) begin
 					error_responses++;
-					$display("[SB][WRITE ERROR] Address=%h, Time=%0t", tr.paddr, $time);
+					$display("[SB][WRITE ERROR] Address=%h is out of range, Time=%0t", tr.paddr, $time);
 				end
 				else begin
 					memory[tr.paddr] = tr.pwdata;
@@ -43,7 +43,7 @@ class scoreboard;
 				//$display("%d total reads", total_reads);
 				if (tr.pslverr) begin
 					error_responses++;
-					$display("[SB][READ ERROR] Address=%h, Time=%0t", tr.paddr, $time);
+					$display("[SB][READ ERROR] Address=%h is out of range, Time=%0t", tr.paddr, $time);
 				end
 
 				else if (tr.prdata !== memory[tr.paddr]) begin

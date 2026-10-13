@@ -10,7 +10,7 @@ class apb_repeat_read_test extends apb_base_test;
         env.agt.gen.reset();
 
 		for(int i = 0; i < MEM_SIZE; i++) begin 
-			env.agt.gen.write(i, $random);
+			env.agt.gen.write(i, $urandom);
 
 			repeat(REPEAT_COUNT)
 				env.agt.gen.read(i);

@@ -2,11 +2,13 @@ class monitor;
 	virtual apb_if apbif;
 	mailbox mon_to_sb;
 	transaction tr;
+	apb_coverage cov;
 
-	function new(virtual apb_if apbif, mailbox mon_to_sb);
+	function new(virtual apb_if apbif, mailbox mon_to_sb, apb_coverage cov);
 		$display("Monitor initialized at time %0d", $time);
 		this.mon_to_sb = mon_to_sb;
 		this.apbif = apbif;
+		this.cov = cov;
 	endfunction
 
 	task run;
@@ -31,6 +33,8 @@ class monitor;
 			tr.pslverr = apbif.pslverr;
 			tr.penable = apbif.penable;
 			tr.pready = apbif.pready;
+
+			cov.sample(tr.paddr, tr.pwrite, tr.pwdata, tr.pslverr);
 			
 			//$display("In monitor paddr = %d, pwrite = %d", tr.paddr, tr.pwrite);
 //			$display("paddr=%d, pwrite=%d, pwdata=%d, pselx=%d, prdata=%d, pslverr=%d, penable=%d, pready=%d time=%0d", tr.paddr, tr.pwrite, tr.pwdata, tr.pselx, tr.prdata, tr.pslverr, tr.penable, tr.pready, $time);
