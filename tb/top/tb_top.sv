@@ -91,7 +91,7 @@ module tb_top;
 
 	initial begin
 		$dumpfile("dump.vcd");
-		$dumpvars;
+		$dumpvars(0, tb_top);
 	end
 
 
