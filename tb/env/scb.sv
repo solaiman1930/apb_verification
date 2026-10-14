@@ -4,7 +4,7 @@ class scoreboard;
     mailbox mon_to_sb;
     transaction tr;
 
-    bit [DATA_WIDTH-1:0] memory [bit [$clog2(MEM_SIZE) - 1:0]];
+    bit [DATA_WIDTH-1:0] memory [bit [ADDR_WIDTH-1:0]];
 
     int total_writes = 0;
     int total_reads = 0;
@@ -16,7 +16,7 @@ class scoreboard;
         this.mon_to_sb = mon_to_sb;
 
 		for(int i = 0; i < MEM_SIZE; i++)
-			memory[i] = 32'b0;
+			memory[4*i] = 32'b0;
 
         $display("Scoreboard initialized at time %0t", $time);
     endfunction

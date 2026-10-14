@@ -43,10 +43,13 @@ class driver;
 		@(posedge apbif.pclk);
 		apbif.penable <= 1;
 
-		while(!apbif.pready)
-			@(posedge apbif.pclk);
+		//while(!apbif.pready)
+			//@(posedge apbif.pclk);
 
-		@(posedge apbif.pclk);
+		do
+			@(posedge apbif.pclk);
+		while(!apbif.pready);
+
 		apbif.pselx <= 0;
 		apbif.penable <= 0;
 	endtask
@@ -65,10 +68,13 @@ class driver;
 		@(posedge apbif.pclk);
 		apbif.penable <= 1;
 
-		while(!apbif.pready)
+		//while(!apbif.pready)
+			//@(posedge apbif.pclk);
+		
+		do
 			@(posedge apbif.pclk);
+		while(!apbif.pready);
 
-		@(posedge apbif.pclk);
 		apbif.pselx <= 0;
 		apbif.penable <= 0;
 	endtask

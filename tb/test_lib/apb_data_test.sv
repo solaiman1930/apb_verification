@@ -12,8 +12,8 @@ class apb_data_test extends apb_base_test;
         for(int i = 0; i < MEM_SIZE; i++) begin 
 
             repeat(REPEAT_COUNT) begin
-				env.agt.gen.write(i, $urandom);
-                env.agt.gen.read(i);
+				env.agt.gen.write(4*i, $urandom);
+                env.agt.gen.read(4*i);
 			end
         end
     

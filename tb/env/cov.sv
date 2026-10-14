@@ -17,8 +17,8 @@ class apb_coverage;
         }
 
         cp_address: coverpoint paddr {
-            bins valid_address[12] = {[0:MEM_SIZE-1]};
-            bins invalid_address = {[MEM_SIZE:$]};
+            bins valid_address[12] = {[0:4*MEM_SIZE-4]};
+            bins invalid_address[12] = {[4*MEM_SIZE-4:$]};
         }
 
         cp_data: coverpoint pwdata {

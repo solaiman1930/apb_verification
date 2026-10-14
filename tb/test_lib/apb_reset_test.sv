@@ -11,7 +11,7 @@ class apb_reset_test extends apb_base_test;
         $display("Reset deasserted successfully.");
 
 		for(int i = 0; i < MEM_SIZE; i++) begin
-			env.agt.gen.read(i);
+			env.agt.gen.read(4*i);
 		end
 		
 		wait(env.sb.total_reads == 	MEM_SIZE);
